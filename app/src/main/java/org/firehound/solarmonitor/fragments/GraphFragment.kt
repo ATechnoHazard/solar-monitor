@@ -33,25 +33,25 @@ class GraphFragment : Fragment() {
         addEntries()
 
         val currDataSet = LineDataSet(currentEntries, "PV1 Current (A)")
-        currDataSet.color = Color.GREEN
+//        currDataSet.color = Color.GREEN
         currentLineChart.data = LineData(currDataSet)
         currentLineChart.xAxis.valueFormatter = TimeFormatter()
         currentLineChart.invalidate()
 
         val voltDataSet = LineDataSet(voltageEntries, "PV1 Voltage (V)")
-        voltDataSet.color = Color.RED
+//        voltDataSet.color = Color.RED
         voltageLineChart.data = LineData(voltDataSet)
         voltageLineChart.xAxis.valueFormatter = TimeFormatter()
         voltageLineChart.invalidate()
 
         val powDataSet = LineDataSet(powerEntries, "Power (W)")
-        powDataSet.color = Color.YELLOW
+//        powDataSet.color = Color.YELLOW
         powerLineChart.data = LineData(powDataSet)
         powerLineChart.xAxis.valueFormatter = TimeFormatter()
         powerLineChart.invalidate()
 
         val freqDataSet = LineDataSet(freqEntries, "PV1 Voltage (V)")
-        freqDataSet.color = Color.BLACK
+//        freqDataSet.color = Color.BLACK
         freqLineChart.data = LineData(freqDataSet)
         freqLineChart.xAxis.valueFormatter = TimeFormatter()
         freqLineChart.invalidate()
