@@ -9,10 +9,13 @@
    <TextView
        android:id="@+id/textView2"
        android:layout_width="match_parent"
+       android:padding="8dp"
        android:layout_height="wrap_content"
        android:gravity="center"
        android:text="Site info"
+       android:fontFamily="@font/manrope_semibold"
        android:textSize="32sp"
+       android:textColor="@android:color/black"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent"
@@ -25,6 +28,7 @@
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
+       tools:listitem="@layout/main_recyclerview_item"
        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
