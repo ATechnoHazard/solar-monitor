@@ -1,9 +1,9 @@
-package org.firehound.solarmonitor
+package org.firehound.solarmonitor.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
+import org.firehound.solarmonitor.R
 
 class MainActivity : AppCompatActivity() {
 
