@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:fontFamily">@font/manrope-semibold</item>
+        <item name="android:fontFamily">@font/manrope_semibold</item>
     </style>
 
 </resources>

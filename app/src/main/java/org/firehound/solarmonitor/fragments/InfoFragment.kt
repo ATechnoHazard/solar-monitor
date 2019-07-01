@@ -2,22 +2,19 @@ package org.firehound.solarmonitor.fragments
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_info.*
 import org.firehound.solarmonitor.R
+import org.firehound.solarmonitor.adapters.InfoRecyclerViewAdapter
+
+private val titles = ArrayList<String>()
+private val subtitles = ArrayList<String>()
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- *
- */
 class InfoFragment : Fragment() {
 
     override fun onCreateView(
@@ -30,6 +27,31 @@ class InfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        addValues()
+        infoRecyclerView.adapter = InfoRecyclerViewAdapter(titles, subtitles)
+        infoRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+    }
 
+    private fun addValues() {
+        titles.clear()
+        subtitles.clear()
+
+        titles.add("System size")
+        subtitles.add("3 KW")
+
+        titles.add("Commission Date")
+        subtitles.add("2017-12-28")
+
+        titles.add("Trees planted")
+        subtitles.add("18.48 trees")
+
+        titles.add("Carbon offset")
+        subtitles.add("6.85 tons")
+
+        titles.add("Income")
+        subtitles.add("INR68453.26")
+
+        titles.add("Rated power")
+        subtitles.add("3 KW")
     }
 }
