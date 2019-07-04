@@ -18,28 +18,26 @@ class NavActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nav)
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            var fragment: Fragment? = InfoFragment()
+            var retVal = false
+            when (it.itemId) {
                 R.id.menuSiteInfo -> {
-                    val fragment = InfoFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
-                    return@OnNavigationItemSelectedListener true
+                    fragment = InfoFragment()
+                    retVal = true
                 }
                 R.id.menuVisualize -> {
-                    val fragment = GraphFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
-                    return@OnNavigationItemSelectedListener true
+                    fragment = GraphFragment()
+                    retVal = true
                 }
                 R.id.menuStats -> {
-                    val fragment = StatsFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
-                    return@OnNavigationItemSelectedListener true
+                    fragment = StatsFragment()
+                    retVal = true
                 }
             }
-            false
-        })
-        val fragment = InfoFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment!!, fragment.javaClass.simpleName).commit()
+            retVal
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
