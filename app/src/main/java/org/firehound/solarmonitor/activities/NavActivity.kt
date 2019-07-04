@@ -42,31 +42,23 @@ class NavActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        bottomNavigationView.selectedItemId.let { outState.putInt("frag", it) }
+        outState.putInt("frag", bottomNavigationView.selectedItemId)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+        var fragment: Fragment = InfoFragment()
         when (savedInstanceState.getInt("frag")) {
             R.id.menuSiteInfo -> {
-                val fragment = InfoFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
-                return
+                fragment = InfoFragment()
             }
             R.id.menuVisualize -> {
-                val fragment = GraphFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
-                return
+                fragment = GraphFragment()
             }
             R.id.menuStats -> {
-                val fragment = StatsFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
-                return
-            }
-            else -> {
-                val fragment = InfoFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
+                fragment = StatsFragment()
             }
         }
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
     }
 }
