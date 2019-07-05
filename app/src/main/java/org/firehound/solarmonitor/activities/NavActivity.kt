@@ -17,9 +17,9 @@ class NavActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nav)
-
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, InfoFragment()).commit()
         bottomNavigationView.setOnNavigationItemSelectedListener {
-            var fragment: Fragment? = InfoFragment()
+            var fragment: Fragment = InfoFragment()
             var retVal = false
             when (it.itemId) {
                 R.id.menuSiteInfo -> {
@@ -35,7 +35,7 @@ class NavActivity : AppCompatActivity() {
                     retVal = true
                 }
             }
-            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment!!, fragment.javaClass.simpleName).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment, fragment.javaClass.simpleName).commit()
             retVal
         }
     }
